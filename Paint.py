@@ -87,5 +87,6 @@ onkey(lambda: store('shape', triangle), 't')
 done()
 
 # si
-#branch de Daniel
-#Ya casi acabo
+#branch de Luis Fer
+
+#jajajaja
