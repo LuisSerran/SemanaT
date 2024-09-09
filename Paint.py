@@ -16,7 +16,6 @@ from freegames import vector
 def line(start, end):
     """Draw line from start to end."""
     up()
-    color("red")
     goto(start.x, start.y)
     down()
     goto(end.x, end.y)
@@ -96,6 +95,7 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+onkey(lambda: color('orange'), 'O')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
