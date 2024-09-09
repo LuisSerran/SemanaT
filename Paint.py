@@ -87,5 +87,3 @@ onkey(lambda: store('shape', triangle), 't')
 done()
 
 # si
-
-#branch de luis angel lol 
