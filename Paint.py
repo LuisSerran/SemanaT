@@ -37,8 +37,16 @@ def square(start, end):
 
 def circle(start, end):
     """Draw circle from start to end."""
-    
+    up()
+    goto(star.x, start.y)
+    down()
+    begin_fill()
 
+    #radio
+    radius = ((end.x - start.x)**2 + (end.y - start.y)**2)**0.5
+    turtle.circle(radius)
+
+    end_fill()
 
 def rectangle(start, end):
     """Draw rectangle from start to end."""
@@ -118,4 +126,3 @@ onkey(lambda: store('shape', triangle), 't')
 onkey(lambda: store('shape', pentagono),'p')
 done()
 
-#circulo
