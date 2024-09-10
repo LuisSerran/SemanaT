@@ -51,7 +51,7 @@ def move():
     """Move ball and targets."""
     if randrange(40) == 0:
         y = randrange(-150, 150)
-        target = vector(200, y)
+        target = vector(400, y)
         targets.append(target)
 
     for target in targets:
@@ -74,7 +74,7 @@ def move():
         if not inside(target):
             target.x = 200
 
-    ontimer(move, 50)
+    ontimer(move, 25)
 
 
 setup(420, 420, 370, 0)
