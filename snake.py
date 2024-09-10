@@ -1,40 +1,40 @@
-"""Snake, classic arcade game.
-
-Exercises
-
-1. How do you make the snake faster or slower?
-2. How can you make the snake go around the edges?
-3. How would you move the food?
-4. Change the snake to respond to mouse clicks.
-"""
-
-from random import randrange, choice
 from turtle import *
-
+from random import randrange
 from freegames import square, vector
-
-snake_colors = ['blue', 'pink', 'yellow', 'purple', 'orange']
-snake_color = choice(snake_colors)
-
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
-
+food_aim = vector(10, 0)  # Dirección inicial de la comida
 
 def change(x, y):
-    """Change snake direction."""
+    "Change snake direction."
     aim.x = x
     aim.y = y
 
-
 def inside(head):
-    """Return True if head inside boundaries."""
+    "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
 
+def move_food():
+    "Move food randomly one step inside the boundaries."
+    # Mueve la comida en su dirección actual
+    food.move(food_aim)
+
+    # Cambia la dirección si la comida llega a los límites
+    if not inside(food):
+        food_aim.x = randrange(-1, 2) * 10  # Cambia aleatoriamente la dirección en x
+        food_aim.y = randrange(-1, 2) * 10  # Cambia aleatoriamente la dirección en y
+
+    # Asegúrate de que la comida se quede dentro de los límites
+    if not inside(food):
+        food.x = max(min(food.x, 190), -190)
+        food.y = max(min(food.y, 190), -190)
+
+    ontimer(move_food, 500)  # La comida se moverá cada 500 milisegundos
 
 def move():
-    """Move snake forward one segment."""
+    "Move snake forward one segment."
     head = snake[-1].copy()
     head.move(aim)
 
@@ -43,8 +43,7 @@ def move():
         update()
         return
 
-    ontimer(move_food, 1000)  # Mueve la comida cada 1000 ms (1 segundo)
-
+    snake.append(head)
 
     if head == food:
         print('Snake:', len(snake))
@@ -56,26 +55,11 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, snake_color)
+        square(body.x, body.y, 9, 'black')
 
     square(food.x, food.y, 9, 'green')
     update()
     ontimer(move, 100)
-    move_food()
-
-def move_food():
-    """Move food randomly one step at a time."""
-    directions = [vector(10, 0), vector(-10, 0), vector(0, 10), vector(0, -10)]
-    move_direction = choice(directions)
-    food_move = food + move_direction
-
-    if inside(food_move):  
-        food.move(move_direction)
-
-#ontimer(move_food, 1000)  # Mueve la comida cada 1000 ms (1 segundo)
-
-
-
 
 setup(420, 420, 370, 0)
 hideturtle()
@@ -86,5 +70,5 @@ onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
 move()
-#move_food()
+move_food()  # Inicia el movimiento de la comida
 done()
