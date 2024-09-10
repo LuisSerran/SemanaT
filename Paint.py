@@ -67,6 +67,20 @@ def triangle(start, end):
 
     end_fill()
 
+def pentagono(start,end):
+    """Draw pentagon from start to end"""
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    
+    side_length = ((end.x - start.x)*2 + (end.y - start.y)2)*0.5 / 2
+        
+    for count in range(5):
+        forward(side_length)
+        left(72)  
+    end_fill()
+
 def tap(x, y):
     """Store starting point or draw shape."""
     start = state['start']
@@ -101,15 +115,7 @@ onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
+onkey(lambda: store('shape', pentagono),'p')
 done()
 
-# si
-#branch main
-#Ya casi acabo
-#Edita algo
-
-
-
-
-
-# eh no mmn como que 30 commits de puros comentarios 
+#circulo
