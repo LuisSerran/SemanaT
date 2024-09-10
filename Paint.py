@@ -104,6 +104,6 @@ onkey(lambda: store('shape', triangle), 't')
 done()
 
 # si
-#branch de Daniel
+#branch main
 #Ya casi acabo
 #Edita algo
