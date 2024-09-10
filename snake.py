@@ -60,6 +60,7 @@ def move():
     square(food.x, food.y, 9, 'green')
     update()
     ontimer(move, 100)
+    move_food()
 
 def move_food():
     """Move food randomly one step at a time."""
@@ -71,7 +72,7 @@ def move_food():
         food.move(move_direction)
 
 
-move_food()  
+
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
