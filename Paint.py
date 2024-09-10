@@ -38,7 +38,7 @@ def square(start, end):
 def circle(start, end):
     """Draw circle from start to end."""
     up()
-    goto(star.x, start.y)
+    goto(start.x, start.y)
     down()
     begin_fill()
 
@@ -82,7 +82,7 @@ def pentagono(start,end):
     down()
     begin_fill()
     
-    side_length = ((end.x - start.x)*2 + (end.y - start.y)2)*0.5 / 2
+    side_length = ((end.x - start.x)*2 + (end.y - start.y)*2)*0.5 / 2
         
     for count in range(5):
         forward(side_length)
