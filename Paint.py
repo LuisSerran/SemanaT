@@ -37,8 +37,16 @@ def square(start, end):
 
 def circle(start, end):
     """Draw circle from start to end."""
-    
+    up()
+    goto(star.x, start.y)
+    down()
+    begin_fill()
 
+    #radio
+    radius = ((end.x - start.x)**2 + (end.y - start.y)**2)**0.5
+    turtle.circle(radius)
+
+    end_fill()
 
 def rectangle(start, end):
     """Draw rectangle from start to end."""
@@ -65,6 +73,20 @@ def triangle(start, end):
         forward(end.x - start.x)
         left(120)
 
+    end_fill()
+
+def pentagono(start,end):
+    """Draw pentagon from start to end"""
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    
+    side_length = ((end.x - start.x)*2 + (end.y - start.y)2)*0.5 / 2
+        
+    for count in range(5):
+        forward(side_length)
+        left(72)  
     end_fill()
 
 def tap(x, y):
@@ -101,15 +123,6 @@ onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
+onkey(lambda: store('shape', pentagono),'p')
 done()
 
-# si
-#branch main
-#Ya casi acabo
-#Edita algo
-
-
-
-
-
-# eh no mmn como que 30 commits de puros comentarios 
