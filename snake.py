@@ -72,10 +72,7 @@ def move_food():
     if inside(food_move):  
         food.move(move_direction)
 
-#ontimer(move_food, 1000)  # Mueve la comida cada 1000 ms (1 segundo)
-
-
-
+        #Funcion de add
 
 setup(420, 420, 370, 0)
 hideturtle()
