@@ -43,7 +43,8 @@ def move():
         update()
         return
 
-    snake.append(head)
+    ontimer(move_food, 1000)  # Mueve la comida cada 1000 ms (1 segundo)
+
 
     if head == food:
         print('Snake:', len(snake))
@@ -71,6 +72,9 @@ def move_food():
     if inside(food_move):  
         food.move(move_direction)
 
+#ontimer(move_food, 1000)  # Mueve la comida cada 1000 ms (1 segundo)
+
+
 
 
 setup(420, 420, 370, 0)
@@ -82,4 +86,5 @@ onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
 move()
+#move_food()
 done()
