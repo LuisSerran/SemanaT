@@ -6,6 +6,9 @@ from freegames import square, vector
 snake_colors = ['blue', 'pink', 'yellow', 'purple', 'orange']
 snake_color = choice(snake_colors)
 
+food_colors = ['black', 'brown', 'green', 'purple', 'yellow']
+food_color = choice(food_colors)
+
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
@@ -43,7 +46,7 @@ def move():
     for body in snake:
         square(body.x, body.y, 9, snake_color)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, food_color)
     update()
 
     ontimer(move, 100)
