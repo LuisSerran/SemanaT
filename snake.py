@@ -71,7 +71,7 @@ def move_food():
     if inside(food_move):  
         food.move(move_direction)
 
-
+        #Funcion de add
 
 setup(420, 420, 370, 0)
 hideturtle()
