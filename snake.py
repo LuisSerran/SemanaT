@@ -60,6 +60,17 @@ def move():
     square(food.x, food.y, 9, 'green')
     update()
     ontimer(move, 100)
+    move_food()
+
+def move_food():
+    """Move food randomly one step at a time."""
+    directions = [vector(10, 0), vector(-10, 0), vector(0, 10), vector(0, -10)]
+    move_direction = choice(directions)
+    food_move = food + move_direction
+
+    if inside(food_move):  
+        food.move(move_direction)
+
 
 
 setup(420, 420, 370, 0)
