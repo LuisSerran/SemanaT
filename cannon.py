@@ -16,7 +16,11 @@ from freegames import vector
 ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
-
+projectile_turtle = Turtle()
+projectile_turtle.shape('triangle')
+projectile_turtle.color('red')
+projectile_turtle.penup()
+projectile_turtle.hideturtle()
 
 def tap(x, y):
     """Respond to screen tap."""
@@ -38,11 +42,15 @@ def draw():
 
     for target in targets:
         goto(target.x, target.y)
-        dot(20, 'blue')
+        dot(20, 'green')
 
     if inside(ball):
-        goto(ball.x, ball.y)
-        dot(6, 'red')
+        projectile_turtle.goto(ball.x, ball.y)
+        projectile_turtle.showturtle()
+    else:
+        projectile_turtle.hideturtle()
+
+        
 
     update()
 
