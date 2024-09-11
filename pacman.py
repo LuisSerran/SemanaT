@@ -13,7 +13,6 @@ from random import choice
 from turtle import *
 from freegames import floor, vector
 
-from freegames import floor, vector
 ghost_colors = ['blue', 'green', 'red', 'purple', 'orange']
 ghost_color = choice(ghost_colors)
 
@@ -140,14 +139,15 @@ def move():
             # Fantasmas siguen a Pacman
             if abs(pacman.x - point.x) > abs(pacman.y - point.y):
                 if pacman.x > point.x:
-                    plan = vector(5, 0)
+                    #Aumento de velocidad cuando encuentran a Pacman
+                    plan = vector(7, 0) 
                 else:
-                    plan = vector(-5, 0)
+                    plan = vector(-7, 0)
             else:
                 if pacman.y > point.y:
-                    plan = vector(0, 5)
+                    plan = vector(0, 7)
                 else:
-                    plan = vector(0, -5)
+                    plan = vector(0, -7)
 
             if valid(point + plan):
                 course.x = plan.x
@@ -155,6 +155,7 @@ def move():
             else:
                 # Si no es válido, elegir una dirección aleatoria
                 options = [
+                    #Velocidad base cuando no encuentran a pacman
                     vector(5, 0),
                     vector(-5, 0),
                     vector(0, 5),
