@@ -9,6 +9,7 @@ Exercises:
 5. Use letters instead of tiles.
 """
 
+
 from random import *
 from turtle import *
 
@@ -67,6 +68,14 @@ def draw():
     goto(0, 0)
     shape(car)
     stamp()
+
+    if all(not tile for tile in hide):
+        up()
+        goto(0,0)
+        color('green')
+        write("GANASTE!!!!", align='center', font=('Arial', 30, 'bold'))
+        update()
+        return
 
     for count in range(64):
         if hide[count]:
